@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BankGuard AI</title>
+
+    <meta
+        name="description"
+        content="BankGuard AI - Intelligent banking transaction support and dispute assistance"
+    >
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         AUTHENTICATION SCREEN
+         ===================================================== -->
+
+    <div
+        id="authScreen"
+        class="auth-screen"
+    >
+
+        <div class="auth-container">
+
+
+            <!-- BRAND -->
+
+            <div class="auth-brand">
+
+                <div class="brand-icon">
+                    🛡️
+                </div>
+
+                <h1>
+                    BankGuard AI
+                </h1>
+
+                <p>
+                    Intelligent banking support,
+                    transaction verification and
+                    dispute assistance.
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 LOGIN
+                 ================================================= -->
+
+            <div
+                id="loginPanel"
+                class="auth-panel"
+            >
+
+                <div class="auth-header">
+
+                    <h2>
+                        Welcome back
+                    </h2>
+
+                    <p>
+                        Login to your BankGuard account
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+                    <div class="form-group">
+
+                        <label for="loginEmail">
+                            Email address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            name="email"
+                            placeholder="Enter your registered email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div
+                        id="loginError"
+                        class="error-message"
+                    ></div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Login securely
+                    </button>
+
+                </form>
+
+
+                <div class="auth-switch">
+
+                    <span>
+                        Don't have online banking access?
+                    </span>
+
+                    <button
+                        type="button"
+                        id="showRegisterButton"
+                        class="link-button"
+                    >
+                        Create an account
+                    </button>
+
+                </div>
+
+
+                <div class="security-note">
+
+                    🔒 Your password is securely protected
+                    and is never shared with BankGuard AI.
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 REGISTRATION
+                 ================================================= -->
+
+            <div
+                id="registerPanel"
+                class="auth-panel hidden"
+            >
+
+                <div class="auth-header">
+
+                    <h2>
+                        Create online banking access
+                    </h2>
+
+                    <p>
+                        Verify your BankGuard customer details
+                        and create your own password.
+                    </p>
+
+                </div>
+
+
+                <div class="verification-info">
+
+                    <strong>
+                        Customer verification
+                    </strong>
+
+                    <p>
+                        Your details must match an existing
+                        BankGuard customer record.
+                        Random customer details cannot be
+                        used to create an account.
+                    </p>
+
+                </div>
+
+
+                <form id="registerForm">
+
+
+                    <div class="form-group">
+
+                        <label for="registerCustomerId">
+                            BankGuard Customer ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerCustomerId"
+                            name="customerId"
+                            placeholder="Example: BG1001"
+                            maxlength="6"
+                            autocomplete="off"
+                            required
+                        >
+
+                        <small>
+                            Example: BG1001
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerName">
+                            Full name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerMobile">
+                            Mobile number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="registerMobile"
+                            name="mobile"
+                            placeholder="10-digit mobile number"
+                            maxlength="10"
+                            inputmode="numeric"
+                            autocomplete="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerEmail">
+                            Email address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerAccountNumber">
+                            Account number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerAccountNumber"
+                            name="accountNumber"
+                            placeholder="Example: BGAC10010001"
+                            autocomplete="off"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="registerPassword">
+                            Create password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            name="password"
+                            placeholder="Create your own password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <small>
+                            Minimum 6 characters
+                        </small>
+
+                    </div>
+
+
+                    <div
+                        id="registerError"
+                        class="error-message"
+                    ></div>
+
+
+                    <div
+                        id="registerSuccess"
+                        class="success-message"
+                    ></div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Create BankGuard Account
+                    </button>
+
+                </form>
+
+
+                <div class="auth-switch">
+
+                    <span>
+                        Already have an account?
+                    </span>
+
+                    <button
+                        type="button"
+                        id="showLoginButton"
+                        class="link-button"
+                    >
+                        Login
+                    </button>
+
+                </div>
+
+
+                <div class="security-note">
+
+                    🛡️ BankGuard verifies your customer
+                    information before creating online
+                    banking access.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CUSTOMER APPLICATION
+         ===================================================== -->
+
+    <div
+        id="mainApp"
+        class="main-app hidden"
+    >
+
+
+        <!-- CUSTOMER HEADER -->
+
+        <header class="app-header">
+
+            <div class="header-brand">
+
+                <div class="header-brand-icon">
+                    🛡️
+                </div>
+
+                <div>
+
+                    <h1>
+                        BankGuard AI
+                    </h1>
+
+                    <span>
+                        Intelligent Banking Assistant
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-user">
+
+                <div
+                    id="userAvatar"
+                    class="user-avatar"
+                >
+                    U
+                </div>
+
+                <div class="header-user-info">
+
+                    <strong id="headerUserName">
+                        Customer
+                    </strong>
+
+                    <span>
+                        Verified customer
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="logoutButton"
+                    class="logout-button"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <main class="dashboard-container">
+
+
+            <!-- =================================================
+                 CUSTOMER WELCOME
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+                <div>
+
+                    <p class="welcome-label">
+                        Secure banking dashboard
+                    </p>
+
+                    <h2>
+
+                        Welcome,
+
+                        <span id="userName">
+                            Customer
+                        </span>
+
+                    </h2>
+
+                    <p id="userEmail"></p>
+
+                </div>
+
+
+                <div class="verified-badge">
+                    ✓ Customer verified
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CUSTOMER SUMMARY
+                 ================================================= -->
+
+            <section class="summary-grid">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        💳
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total transactions
+                        </span>
+
+                        <strong id="totalTransactions">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        ⚠️
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Failed / ATM issues
+                        </span>
+
+                        <strong id="failedTransactions">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        ↩️
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Pending refunds
+                        </span>
+
+                        <strong id="pendingRefunds">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        📋
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Open disputes
+                        </span>
+
+                        <strong id="openDisputes">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CUSTOMER TRANSACTIONS
+                 ================================================= -->
+
+            <section class="section transactions-section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            Account activity
+                        </p>
+
+                        <h2>
+                            Your transactions
+                        </h2>
+
+                        <p>
+                            Transactions verified against
+                            your BankGuard account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="transactionList"
+                    class="transaction-list"
+                >
+
+                    <div class="loading-card">
+                        Loading your transactions...
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 AI CHAT
+                 ================================================= -->
+
+            <section
+                id="chatSection"
+                class="section chat-section"
+            >
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            AI support
+                        </p>
+
+                        <h2>
+                            BankGuard AI Assistant
+                        </h2>
+
+                        <p>
+                            Ask about transactions,
+                            refunds, UPI failures,
+                            ATM issues or disputes.
+                        </p>
+
+                    </div>
+
+
+                    <div class="ai-status">
+
+                        <span class="status-dot"></span>
+
+                        AI online
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="chat-container">
+
+
+                    <div
+                        id="chatMessages"
+                        class="chat-messages"
+                    >
+
+
+                        <div class="message-row bot-row">
+
+                            <div class="chat-avatar bot-avatar">
+                                B
+                            </div>
+
+
+                            <div class="message bot-message">
+
+                                <div class="message-name">
+                                    BankGuard AI
+                                </div>
+
+
+                                <div class="bot-text">
+
+                                    Hello! I'm your
+                                    BankGuard AI assistant.
+
+                                    I can help you understand
+                                    your verified transactions,
+                                    refunds, ATM issues,
+                                    UPI failures and disputes.
+
+                                    <br>
+                                    <br>
+
+                                    What would you like
+                                    help with?
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TYPING -->
+
+                    <div
+                        id="typing"
+                        class="typing-indicator hidden"
+                    >
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                        BankGuard AI is thinking...
+
+                    </div>
+
+
+
+                    <!-- QUICK ACTIONS -->
+
+                    <div class="quick-actions">
+
+
+                        <button
+                            type="button"
+                            class="quick-button"
+                            onclick="sendQuickMessage('Show me my failed transactions')"
+                        >
+                            Failed transactions
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="quick-button"
+                            onclick="sendQuickMessage('I was charged twice')"
+                        >
+                            Duplicate charge
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="quick-button"
+                            onclick="sendQuickMessage('I did not receive cash from an ATM')"
+                        >
+                            ATM cash issue
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="quick-button"
+                            onclick="sendQuickMessage('My refund has not arrived')"
+                        >
+                            Refund issue
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- CHAT INPUT -->
+
+                    <div class="chat-input-area">
+
+
+                        <textarea
+                            id="messageInput"
+                            rows="1"
+                            placeholder="Describe your banking issue..."
+                            aria-label="Message BankGuard AI"
+                        ></textarea>
+
+
+                        <button
+                            type="button"
+                            id="sendButton"
+                            class="send-button"
+                            onclick="sendMessage()"
+                        >
+                            Send
+                        </button>
+
+                    </div>
+
+
+
+                    <div class="chat-security-note">
+
+                        🔒 BankGuard AI will never ask
+                        for your OTP, PIN, CVV, password
+                        or full card number.
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RAISE DISPUTE
+                 ================================================= -->
+
+            <section
+                id="raiseDisputeSection"
+                class="section dispute-form-section"
+            >
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            Case management
+                        </p>
+
+                        <h2>
+                            Raise a Dispute
+                        </h2>
+
+                        <p>
+                            Select one of your verified
+                            transactions and submit a formal
+                            dispute for review.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <form
+                    id="disputeForm"
+                    class="admin-form"
+                >
+
+
+                    <div class="admin-form-grid">
+
+
+                        <!-- TRANSACTION ID -->
+
+                        <div class="form-group">
+
+                            <label for="disputeTransactionId">
+                                Transaction ID
+                            </label>
+
+
+                            <select
+                                id="disputeTransactionId"
+                                name="transactionId"
+                                required
+                            >
+
+                                <option value="">
+                                    Select transaction
+                                </option>
+
+                            </select>
+
+
+                            <small>
+                                Only transactions belonging
+                                to your account are shown.
+                            </small>
+
+                        </div>
+
+
+
+                        <!-- ISSUE -->
+
+                        <div class="form-group">
+
+                            <label for="disputeIssue">
+                                Dispute type
+                            </label>
+
+
+                            <select
+                                id="disputeIssue"
+                                name="issue"
+                                required
+                            >
+
+                                <option value="">
+                                    Select dispute type
+                                </option>
+
+                                <option value="FAILED">
+                                    Failed transaction
+                                </option>
+
+                                <option value="CASH_NOT_RECEIVED">
+                                    ATM cash not received
+                                </option>
+
+                                <option value="DUPLICATE">
+                                    Duplicate charge
+                                </option>
+
+                                <option value="REFUND_NOT_RECEIVED">
+                                    Refund not received
+                                </option>
+
+                                <option value="UNAUTHORIZED">
+                                    Unauthorized transaction
+                                </option>
+
+                                <option value="OTHER">
+                                    Other issue
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="form-group">
+
+                        <label for="disputeDescription">
+                            Description
+                        </label>
+
+
+                        <textarea
+                            id="disputeDescription"
+                            name="description"
+                            rows="5"
+                            placeholder="Explain what happened with this transaction..."
+                            required
+                        ></textarea>
+
+
+                        <small>
+                            Please do not enter OTP, PIN,
+                            CVV, password or full card number.
+                        </small>
+
+                    </div>
+
+
+
+                    <div
+                        id="disputeMessage"
+                        class="admin-message"
+                    ></div>
+
+
+
+                    <button
+                        type="submit"
+                        id="submitDisputeButton"
+                        class="primary-button"
+                    >
+                        Submit Dispute
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CUSTOMER DISPUTE HISTORY
+                 ================================================= -->
+
+            <section
+                id="disputesSection"
+                class="section disputes-section"
+            >
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            Case management
+                        </p>
+
+                        <h2>
+                            Your Disputes
+                        </h2>
+
+                        <p>
+                            Track the status of disputes
+                            submitted from your account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="disputeHistory"
+                    class="dispute-history"
+                >
+
+                    <div class="empty-card">
+
+                        <div class="empty-icon">
+                            📋
+                        </div>
+
+                        <h3>
+                            No disputes yet
+                        </h3>
+
+                        <p>
+                            Your formal transaction
+                            disputes will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 SECURITY FOOTER
+                 ================================================= -->
+
+            <section class="security-footer">
+
+
+                <div class="security-footer-icon">
+                    🛡️
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        BankGuard security reminder
+                    </strong>
+
+                    <p>
+                        Never share your OTP, PIN, CVV,
+                        password or full card number with
+                        anyone. BankGuard AI uses verified
+                        account data before providing
+                        transaction-specific assistance.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- CUSTOMER FOOTER -->
+
+        <footer class="app-footer">
+
+            <p>
+                BankGuard AI &copy; 2026
+            </p>
+
+            <p>
+                Demonstration banking support system
+                using simulated transaction data.
+            </p>
+
+        </footer>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         ADMIN DASHBOARD
+         ===================================================== -->
+
+    <div
+        id="adminApp"
+        class="main-app hidden"
+    >
+
+
+        <!-- ADMIN HEADER -->
+
+        <header class="app-header">
+
+
+            <div class="header-brand">
+
+                <div class="header-brand-icon">
+                    🛡️
+                </div>
+
+
+                <div>
+
+                    <h1>
+                        BankGuard AI
+                    </h1>
+
+                    <span>
+                        Administration Portal
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="header-user">
+
+                <div class="user-avatar">
+                    A
+                </div>
+
+
+                <div class="header-user-info">
+
+                    <strong>
+                        Administrator
+                    </strong>
+
+                    <span>
+                        BankGuard Admin
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="adminLogoutButton"
+                    class="logout-button"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <main class="dashboard-container">
+
+
+            <!-- =================================================
+                 ADMIN WELCOME
+                 ================================================= -->
+
+            <section class="welcome-section">
+
+
+                <div>
+
+                    <p class="welcome-label">
+                        Administration
+                    </p>
+
+                    <h2>
+                        Customer Management
+                    </h2>
+
+                    <p>
+                        Manage BankGuard customer records,
+                        transactions and disputes.
+                    </p>
+
+                </div>
+
+
+                <div class="verified-badge">
+                    ✓ Administrator
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ADMIN SUMMARY
+                 ================================================= -->
+
+            <section class="summary-grid">
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        👥
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Total customers
+                        </span>
+
+                        <strong id="adminTotalCustomers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        🔐
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Registered users
+                        </span>
+
+                        <strong id="adminRegisteredCustomers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="summary-card">
+
+                    <div class="summary-icon">
+                        📋
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Open disputes
+                        </span>
+
+                        <strong id="adminOpenDisputes">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ADD CUSTOMER
+                 ================================================= -->
+
+            <section class="section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            Customer management
+                        </p>
+
+                        <h2>
+                            Add Customer
+                        </h2>
+
+                        <p>
+                            Create a new BankGuard customer
+                            record before they register
+                            for online banking.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <form
+                    id="addCustomerForm"
+                    class="admin-form"
+                >
+
+
+                    <div class="admin-form-grid">
+
+
+                        <div class="form-group">
+
+                            <label for="adminCustomerName">
+                                Full name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminCustomerName"
+                                placeholder="Customer name"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="adminCustomerMobile">
+                                Mobile number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="adminCustomerMobile"
+                                placeholder="10-digit mobile"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="adminCustomerEmail">
+                                Email address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="adminCustomerEmail"
+                                placeholder="customer@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="adminCustomerBranch">
+                                Branch
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminCustomerBranch"
+                                placeholder="BankGuard Central"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <label for="adminCustomerCity">
+                                City
+                            </label>
+
+                            <input
+                                type="text"
+                                id="adminCustomerCity"
+                                placeholder="Bengaluru"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div
+                        id="adminCustomerMessage"
+                        class="admin-message"
+                    ></div>
+
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Customer
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ADD TRANSACTION
+                 ================================================= -->
+
+            <section class="section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            Transaction management
+                        </p>
+
+                        <h2>
+                            Add Transaction
+                        </h2>
+
+                        <p>
+                            Add a transaction to a customer's
+                            BankGuard account.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <form
+                    id="addTransactionForm"
+                    class="admin-form"
+                >
+
+
+                    <div class="admin-form-grid">
+
+
+                        <!-- CUSTOMER -->
+
+                        <div class="form-group">
+
+                            <label for="adminTransactionCustomer">
+                                Customer
+                            </label>
+
+
+                            <select
+                                id="adminTransactionCustomer"
+                                required
+                            >
+
+                                <option value="">
+                                    Select customer
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- TRANSACTION TYPE -->
+
+                        <div class="form-group">
+
+                            <label for="adminTransactionType">
+                                Transaction type
+                            </label>
+
+
+                            <select
+                                id="adminTransactionType"
+                                required
+                            >
+
+                                <option value="">
+                                    Select type
+                                </option>
+
+                                <option value="UPI">
+                                    UPI
+                                </option>
+
+                                <option value="CARD">
+                                    Card
+                                </option>
+
+                                <option value="ATM">
+                                    ATM
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- AMOUNT -->
+
+                        <div class="form-group">
+
+                            <label for="adminTransactionAmount">
+                                Amount
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="adminTransactionAmount"
+                                placeholder="Enter amount"
+                                min="1"
+                                step="0.01"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- MERCHANT -->
+
+                        <div class="form-group">
+
+                            <label for="adminTransactionMerchant">
+                                Merchant / ATM
+                            </label>
+
+
+                            <input
+                                type="text"
+                                id="adminTransactionMerchant"
+                                placeholder="Example: ABC Store"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- STATUS -->
+
+                        <div class="form-group">
+
+                            <label for="adminTransactionStatus">
+                                Transaction status
+                            </label>
+
+
+                            <select
+                                id="adminTransactionStatus"
+                                required
+                            >
+
+                                <option value="">
+                                    Select status
+                                </option>
+
+                                <option value="SUCCESS">
+                                    SUCCESS
+                                </option>
+
+                                <option value="FAILED">
+                                    FAILED
+                                </option>
+
+                                <option value="DUPLICATE">
+                                    DUPLICATE
+                                </option>
+
+                                <option value="REVERSED">
+                                    REVERSED
+                                </option>
+
+                                <option value="CASH_NOT_RECEIVED">
+                                    CASH NOT RECEIVED
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- DEBIT STATUS -->
+
+                        <div class="form-group">
+
+                            <label for="adminTransactionDebitStatus">
+                                Debit status
+                            </label>
+
+
+                            <select
+                                id="adminTransactionDebitStatus"
+                                required
+                            >
+
+                                <option value="">
+                                    Select debit status
+                                </option>
+
+                                <option value="DEBITED">
+                                    DEBITED
+                                </option>
+
+                                <option value="NOT_DEBITED">
+                                    NOT DEBITED
+                                </option>
+
+                                <option value="DEBITED_TWICE">
+                                    DEBITED TWICE
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- REFUND STATUS -->
+
+                        <div class="form-group">
+
+                            <label for="adminTransactionRefundStatus">
+                                Refund status
+                            </label>
+
+
+                            <select
+                                id="adminTransactionRefundStatus"
+                                required
+                            >
+
+                                <option value="">
+                                    Select refund status
+                                </option>
+
+                                <option value="NOT_APPLICABLE">
+                                    NOT APPLICABLE
+                                </option>
+
+                                <option value="NOT_REFUNDED">
+                                    NOT REFUNDED
+                                </option>
+
+                                <option value="PENDING">
+                                    PENDING
+                                </option>
+
+                                <option value="REFUNDED">
+                                    REFUNDED
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- DATE -->
+
+                        <div class="form-group">
+
+                            <label for="adminTransactionDate">
+                                Transaction date
+                            </label>
+
+
+                            <input
+                                type="date"
+                                id="adminTransactionDate"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div
+                        id="adminTransactionMessage"
+                        class="admin-message"
+                    ></div>
+
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        Add Transaction
+                    </button>
+
+
+                </form>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ADMIN DISPUTE MANAGEMENT
+                 ================================================= -->
+
+            <section
+                id="adminDisputesSection"
+                class="section"
+            >
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            Case management
+                        </p>
+
+                        <h2>
+                            Dispute Management
+                        </h2>
+
+                        <p>
+                            Review customer disputes and
+                            accept or reject submitted cases.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="adminDisputeList"
+                    class="dispute-history"
+                >
+
+                    <div class="loading-card">
+                        Loading disputes...
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 CUSTOMER LIST
+                 ================================================= -->
+
+            <section class="section">
+
+
+                <div class="section-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            BankGuard records
+                        </p>
+
+                        <h2>
+                            Customers
+                        </h2>
+
+                        <p>
+                            View and manage registered
+                            BankGuard customer records.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="adminCustomerList"
+                    class="admin-customer-list"
+                >
+
+                    <div class="loading-card">
+                        Loading customers...
+                    </div>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =================================================
+                 ADMIN SECURITY
+                 ================================================= -->
+
+            <section class="security-footer">
+
+
+                <div class="security-footer-icon">
+                    🛡️
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        Administrator security
+                    </strong>
+
+
+                    <p>
+                        Customer management and dispute
+                        decisions are restricted to
+                        authenticated BankGuard administrators.
+                        Never share administrator credentials.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+
+
+        <!-- ADMIN FOOTER -->
+
+        <footer class="app-footer">
+
+            <p>
+                BankGuard AI &copy; 2026
+            </p>
+
+            <p>
+                Administration Portal
+            </p>
+
+        </footer>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="/script.js"></script>
+
+
+</body>
+
+</html>
