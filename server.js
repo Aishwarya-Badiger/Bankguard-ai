@@ -368,6 +368,7 @@ function seedCustomers() {
 
 seedCustomers();
 
+
 // ============================================================
 // SEED DEMO CUSTOMER LOGIN ACCOUNTS
 // ============================================================
@@ -423,6 +424,25 @@ function seedDemoCustomerUsers() {
             );
 
         if (existingUser) {
+            db.prepare(`
+                UPDATE users
+                SET
+                    name = ?,
+                    email = ?,
+                    password_hash = ?,
+                    role = 'customer'
+                WHERE user_id = ?
+            `).run(
+                customer.name,
+                customer.email,
+                passwordHash,
+                existingUser.user_id
+            );
+
+            console.log(
+                `Demo customer login synchronized: ${customer.email}`
+            );
+
             continue;
         }
 
