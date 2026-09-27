@@ -731,16 +731,35 @@ function ensureAdmin() {
         );
 
     if (existingAdmin) {
-        console.log(
-            "BankGuard admin already exists"
+    const passwordHash =
+        bcrypt.hashSync(
+            adminPassword,
+            10
         );
 
-        console.log(
-            `Admin email: ${adminEmail}`
-        );
+    db.prepare(`
+        UPDATE users
+        SET
+            password_hash = ?,
+            name = ?
+        WHERE user_id = ?
+          AND role = 'admin'
+    `).run(
+        passwordHash,
+        "BankGuard Administrator",
+        existingAdmin.user_id
+    );
 
-        return;
-    }
+    console.log(
+        "BankGuard admin password synchronized"
+    );
+
+    console.log(
+        `Admin email: ${adminEmail}`
+    );
+
+    return;
+}
 
     const existingEmail =
         db.prepare(`
