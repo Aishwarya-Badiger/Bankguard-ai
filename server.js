@@ -368,7 +368,91 @@ function seedCustomers() {
 
 seedCustomers();
 
+// ============================================================
+// SEED DEMO CUSTOMER LOGIN ACCOUNTS
+// ============================================================
 
+function seedDemoCustomerUsers() {
+    const demoPassword = "123456";
+
+    const customers = [
+        {
+            customerId: "BG1001",
+            name: "Aishwarya",
+            email: "aishwarya@bankguard.demo"
+        },
+        {
+            customerId: "BG1002",
+            name: "Ashwini",
+            email: "ashwini@bankguard.demo"
+        },
+        {
+            customerId: "BG1003",
+            name: "Priya",
+            email: "priya@bankguard.demo"
+        },
+        {
+            customerId: "BG1004",
+            name: "Rahul",
+            email: "rahul@bankguard.demo"
+        },
+        {
+            customerId: "BG1005",
+            name: "bob",
+            email: "bob@bankguard.demo"
+        }
+    ];
+
+    const passwordHash =
+        bcrypt.hashSync(
+            demoPassword,
+            10
+        );
+
+    for (const customer of customers) {
+        const existingUser =
+            db.prepare(`
+                SELECT
+                    user_id
+                FROM users
+                WHERE customer_id = ?
+                   OR LOWER(email) = LOWER(?)
+            `).get(
+                customer.customerId,
+                customer.email
+            );
+
+        if (existingUser) {
+            continue;
+        }
+
+        db.prepare(`
+            INSERT INTO users
+            (
+                customer_id,
+                name,
+                email,
+                password_hash,
+                role,
+                created_at
+            )
+            VALUES
+            (?, ?, ?, ?, 'customer', ?)
+        `).run(
+            customer.customerId,
+            customer.name,
+            customer.email,
+            passwordHash,
+            new Date().toISOString()
+        );
+
+        console.log(
+            `Demo customer login created: ${customer.email}`
+        );
+    }
+}
+
+seedDemoCustomerUsers();
 // ============================================================
 // TRANSACTION DATA
 // ============================================================
